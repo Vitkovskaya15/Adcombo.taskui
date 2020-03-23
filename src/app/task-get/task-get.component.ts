@@ -22,4 +22,10 @@ export class TaskGetComponent implements OnInit {
     });
   }
 
+  deleteTask(id): void {
+    this.tasksService.deleteTask(id).subscribe(res => {  
+      this.tasks.splice(id, 1);  
+    });  ;
+  }
+
 }

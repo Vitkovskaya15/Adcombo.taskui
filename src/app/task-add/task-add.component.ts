@@ -20,7 +20,8 @@ export class TaskAddComponent implements OnInit {
     this.angForm = this.fb.group({  
       TaskName: ['', Validators.required ],  
       TaskDescription: ['', Validators.required ],  
-      TaskPriority: ['', Validators.required ]  
+      TaskPriority: ['', Validators.required ],
+      TaskDeadline: [''] 
     });  
   }  
 

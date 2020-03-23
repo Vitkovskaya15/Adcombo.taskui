@@ -25,4 +25,9 @@ export class TasksService {
            .http  
            .get(`${this.uri}`);  
   }    
+  deleteTask(id: any) {
+    return this
+      .http
+      .get(`${this.uri}/delete/${id}`)
+  }
 }
