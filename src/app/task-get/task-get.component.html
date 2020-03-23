@@ -16,7 +16,7 @@
             <td>{{ task.TaskCreated }}</td>  
             <td>{{ task.TaskDeadline }}</td>  
             <td>{{ task.TaskDone }}</td>  
-            <td><a [routerLink]="['/edit', task._id]" class="btn btn-primary">Редактировать</a></td>  
+            <td><a [routerLink]="['edit', task._id]" class="btn btn-primary">Редактировать</a></td>  
             <td><a (click) = "deleteTask(task._id)" class="btn btn-danger">Удалить</a></td>  
             <td><a [routerLink]="" class="btn">Завершить</a></td>  
         </tr>  

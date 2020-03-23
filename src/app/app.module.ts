@@ -7,13 +7,15 @@ import { TaskAddComponent } from './task-add/task-add.component';
 import { ReactiveFormsModule } from '@angular/forms';  
 import { HttpClientModule } from '@angular/common/http';  
 import { TasksService } from './tasks.service';
-import { TaskGetComponent } from './task-get/task-get.component';  
+import { TaskGetComponent } from './task-get/task-get.component';
+import { TaskEditComponent } from './task-edit/task-edit.component';  
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskAddComponent,
-    TaskGetComponent
+    TaskGetComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,

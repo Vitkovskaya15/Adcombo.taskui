@@ -30,4 +30,19 @@ export class TasksService {
       .http
       .get(`${this.uri}/delete/${id}`)
   }
+  editTask(id: any) {
+    return this
+      .http
+      .get(`${this.uri}/edit/${id}`)
+  }
+  updateTask(TaskName, TaskDescription, id) {
+    const obj = {  
+      TaskName,  
+      TaskDescription
+    };  
+    this  
+      .http  
+      .post(`${this.uri}/update/${id}`, obj)  
+      .subscribe(res => console.log('Update is Done'));      
+  }
 }
