@@ -1,0 +1,24 @@
+<table class="table table-hover">  
+    <thead>  
+    <tr>  
+        <td>Название задачи</td>  
+        <td>Важность задачи</td>  
+        <td>Дата создания задачи</td>  
+        <td>Дедлайн</td>
+        <td>Дата завершения</td>
+        <td colspan="3">Действия</td>  
+    </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let task of tasks">  
+            <td>{{ task.TaskName }}</td>  
+            <td>{{ task.TaskPriority }}</td>  
+            <td>{{ task.TaskCreated }}</td>  
+            <td>{{ task.TaskDeadline }}</td>  
+            <td>{{ task.TaskDone }}</td>  
+            <td><a [routerLink]="['/edit', task._id]" class="btn btn-primary">Редактировать</a></td>  
+            <td><a [routerLink]="" class="btn btn-danger">Удалить</a></td>  
+            <td><a [routerLink]="" class="btn">Завершить</a></td>  
+        </tr>  
+    </tbody>  
+  </table>  

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TaskAddComponent } from './task-add/task-add.component';
 import { ReactiveFormsModule } from '@angular/forms';  
 import { HttpClientModule } from '@angular/common/http';  
-import { TasksService } from './tasks.service';  
+import { TasksService } from './tasks.service';
+import { TaskGetComponent } from './task-get/task-get.component';  
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskAddComponent
+    TaskAddComponent,
+    TaskGetComponent
   ],
   imports: [
     BrowserModule,

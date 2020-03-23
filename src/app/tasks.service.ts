@@ -20,4 +20,9 @@ export class TasksService {
     this.http.post(`${this.uri}/add`, obj)  
         .subscribe(res => console.log('Done'));  
   }  
+  getTasks() {  
+    return this  
+           .http  
+           .get(`${this.uri}`);  
+  }    
 }
