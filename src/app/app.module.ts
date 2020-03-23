@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskAddComponent } from './task-add/task-add.component';
 import { ReactiveFormsModule } from '@angular/forms';  
+import { HttpClientModule } from '@angular/common/http';  
+import { TasksService } from './tasks.service';  
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TasksService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

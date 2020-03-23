@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';  
+import { TasksService } from '../tasks.service';  
 
 @Component({
   selector: 'app-task-add',
@@ -9,7 +10,9 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 export class TaskAddComponent implements OnInit {
   angForm: FormGroup;  
 
-  constructor(private fb: FormBuilder) {  
+  constructor(
+    private fb: FormBuilder,
+    private tasksService: TasksService) {  
     this.createForm();  
   } 
 
@@ -19,6 +22,13 @@ export class TaskAddComponent implements OnInit {
       TaskDescription: ['', Validators.required ],  
       TaskPriority: ['', Validators.required ]  
     });  
+  }  
+
+  addTask(TaskName, TaskDescription, TaskPriority, TaskDeadline) {  
+    let TaskCreated = new Date()
+    let TaskDone: Date = null
+
+    this.tasksService.addTask(TaskName, TaskDescription, TaskPriority, TaskDeadline, TaskCreated, TaskDone);  
   }  
 
   ngOnInit(): void {
