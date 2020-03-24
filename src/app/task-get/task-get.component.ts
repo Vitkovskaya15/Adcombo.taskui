@@ -16,7 +16,7 @@ export class TaskGetComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksService
-    .getTasks()
+    .getTasks(null)
     .subscribe((data: Task[]) => {
       this.tasks = data
     });
@@ -48,4 +48,14 @@ export class TaskGetComponent implements OnInit {
 
     console.log("Trying to finish task " + task.TaskName + "(" + id + ")");
   }
+
+  onTaskPriorityChange(TaskPriority): void {
+    this.tasksService
+    .getTasks(TaskPriority)
+    .subscribe((data: Task[]) => {
+      this.tasks = data
+    });    
+  }
+
+
 }

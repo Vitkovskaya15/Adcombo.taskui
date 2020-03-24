@@ -20,10 +20,13 @@ export class TasksService {
     this.http.post(`${this.uri}/add`, obj)  
         .subscribe(res => console.log('Done'));  
   }  
-  getTasks() {  
+  getTasks(TaskPriority) {  
+    let uri = `${this.uri}`;
+    if (TaskPriority && TaskPriority >= 0)
+      uri = uri + "/" + TaskPriority;
     return this  
            .http  
-           .get(`${this.uri}`);  
+           .get(uri);  
   }    
   deleteTask(id: any) {
     return this
