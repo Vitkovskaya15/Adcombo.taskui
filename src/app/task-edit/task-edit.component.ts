@@ -25,7 +25,7 @@ export class TaskEditComponent implements OnInit {
         TaskName: ['', Validators.required ],  
         TaskDescription: ['', Validators.required ],
         TaskPriority: ['', Validators.required ],
-
+        TaskDeadline: ['']
       });  
     }  
 
@@ -37,11 +37,19 @@ export class TaskEditComponent implements OnInit {
     });    
   }
 
-  updateTask(TaskName, TaskDescription, TaskPriority): void {
+  updateTask(TaskName, TaskDescription, TaskPriority, TaskDeadline): void {
     console.log('Update is started')
     this.route.params.subscribe(params => {  
-      this.tasksService.updateTask(TaskName, TaskDescription, TaskPriority, params.id);  
+      this.tasksService.updateTask(TaskName, TaskDescription, TaskPriority, TaskDeadline, params.id);  
       this.router.navigate(['tasks']);  
     });    
   }
+
+  parseDate(dateString: string): Date {
+    console.log('parseDate called with ' + dateString)
+    if (dateString) {
+        return new Date(dateString);
+    }
+    return null;
+  }  
 }
