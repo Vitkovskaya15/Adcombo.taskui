@@ -39,4 +39,13 @@ export class TaskGetComponent implements OnInit {
     return "Неизвестная важность: " + TaskPriority;
   }
 
+  finishTask(id): void {
+    let task = this.tasks.find(task => task._id == id);
+
+    task.TaskDone = new Date();
+
+    this.tasksService.finishTask(task.TaskDone, id);
+
+    console.log("Trying to finish task " + task.TaskName + "(" + id + ")");
+  }
 }

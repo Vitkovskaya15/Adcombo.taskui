@@ -1,4 +1,5 @@
 export default class Task {  
+    _id: string;
     TaskName: string;  
     TaskDescription: string;  
     TaskPriority: number;  

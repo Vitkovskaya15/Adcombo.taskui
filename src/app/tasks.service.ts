@@ -47,4 +47,13 @@ export class TasksService {
       .post(`${this.uri}/update/${id}`, obj)  
       .subscribe(res => console.log('Update is Done'));      
   }
+  finishTask(TaskDone, id) {
+    const obj = {
+      TaskDone
+    }
+    this
+      .http
+      .post(`${this.uri}/finish/${id}`, obj)
+      .subscribe(res => console.log('Finish is Done'));
+  }
 }
