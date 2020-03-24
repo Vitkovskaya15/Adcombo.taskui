@@ -35,10 +35,11 @@ export class TasksService {
       .http
       .get(`${this.uri}/edit/${id}`)
   }
-  updateTask(TaskName, TaskDescription, id) {
+  updateTask(TaskName, TaskDescription, TaskPriority, id) {
     const obj = {  
       TaskName,  
-      TaskDescription
+      TaskDescription, 
+      TaskPriority
     };  
     this  
       .http  

@@ -23,7 +23,9 @@ export class TaskEditComponent implements OnInit {
     createForm() {  
       this.angForm = this.fb.group({  
         TaskName: ['', Validators.required ],  
-        TaskDescription: ['', Validators.required ]
+        TaskDescription: ['', Validators.required ],
+        TaskPriority: ['', Validators.required ],
+
       });  
     }  
 
@@ -35,10 +37,10 @@ export class TaskEditComponent implements OnInit {
     });    
   }
 
-  updateTask(TaskName, TaskDescription): void {
+  updateTask(TaskName, TaskDescription, TaskPriority): void {
     console.log('Update is started')
     this.route.params.subscribe(params => {  
-      this.tasksService.updateTask(TaskName, TaskDescription, params.id);  
+      this.tasksService.updateTask(TaskName, TaskDescription, TaskPriority, params.id);  
       this.router.navigate(['tasks']);  
     });    
   }
