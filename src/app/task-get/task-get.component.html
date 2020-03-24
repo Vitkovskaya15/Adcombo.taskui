@@ -12,7 +12,7 @@
     <tbody>  
         <tr *ngFor="let task of tasks">  
             <td>{{ task.TaskName }}</td>  
-            <td>{{ task.TaskPriority }}</td>  
+            <td>{{ taskPriorityToString(task.TaskPriority) }}</td>  
             <td>{{ task.TaskCreated }}</td>  
             <td>{{ task.TaskDeadline }}</td>  
             <td>{{ task.TaskDone }}</td>  

@@ -28,4 +28,15 @@ export class TaskGetComponent implements OnInit {
     });  ;
   }
 
+  taskPriorityToString(TaskPriority) {
+    if (TaskPriority == 0)
+      return "Обычная";
+    if (TaskPriority == 1)
+      return "Важная";
+    if (TaskPriority == 2)
+      return "Очень важная"
+
+    return "Неизвестная важность: " + TaskPriority;
+  }
+
 }
