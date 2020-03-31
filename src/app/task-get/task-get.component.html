@@ -4,16 +4,21 @@
         formControlName="TaskPriority"
         (change)="onTaskPriorityChange($event.target.value)"
         >
-        <option value="-1">Любая</option>
+        <option value="-1">Все</option>
         <option value="0">Обычная</option>
         <option value="1">Важная</option>
         <option value="2">Очень важная</option>
     </select>
 </div>  
 
+<div class="form-group">
+    <button (click) = "removeSelectedTasks()">Удалить выбранные</button>
+</div>
+
 <table class="table table-hover">  
     <thead>  
     <tr>  
+        <td><input type="checkbox" /></td>
         <td>Название задачи</td>  
         <td>Важность задачи</td>  
         <td>Дата создания задачи</td>  
@@ -24,6 +29,7 @@
     </thead>  
     <tbody>  
         <tr *ngFor="let task of tasks">  
+            <td><input type="checkbox" (click) = "toggleTask(task._id)" [checked]="task.TaskChecked" /></td>
             <td>{{ task.TaskName }}</td>  
             <td>{{ taskPriorityToString(task.TaskPriority) }}</td>  
             <td>{{ task.TaskCreated }}</td>  

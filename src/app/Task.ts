@@ -6,4 +6,5 @@ export default class Task {
     TaskDeadline: Date;
     TaskCreated: Date;
     TaskDone: Date;
+    TaskChecked: boolean;
   }  

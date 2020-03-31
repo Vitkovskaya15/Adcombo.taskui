@@ -25,7 +25,7 @@ export class TaskGetComponent implements OnInit {
   deleteTask(id): void {
     this.tasksService.deleteTask(id).subscribe(res => {  
       this.tasks.splice(id, 1);  
-    });  ;
+    });
   }
 
   taskPriorityToString(TaskPriority) {
@@ -57,5 +57,31 @@ export class TaskGetComponent implements OnInit {
     });    
   }
 
+  toggleTask(id): void {
+    let task = this.tasks.find(task => task._id == id);
+    task.TaskChecked = !task.TaskChecked;
 
+    console.log("Task " + id + " status: " + task.TaskChecked);
+  }
+
+  removeSelectedTasks(): void {
+    let selectedTasks = this.tasks.filter(task => task.TaskChecked);
+    if (selectedTasks.length != 0) {
+      console.log("removeSelectedTasks");
+      let i = 0;
+
+      let deleteSingleTask = () => {
+        this.tasksService.deleteTask(selectedTasks[i]._id).subscribe(res => {
+          i++;
+          if (i < selectedTasks.length) {        
+            deleteSingleTask();
+          } else {
+            this.tasks = this.tasks.filter(task => !task.TaskChecked);
+          }
+        });
+      };
+
+      deleteSingleTask();
+    }
+  }  
 }
