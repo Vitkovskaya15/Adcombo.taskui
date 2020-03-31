@@ -84,4 +84,11 @@ export class TaskGetComponent implements OnInit {
       deleteSingleTask();
     }
   }  
+
+  toggleAll(event): void {
+    let checked = event.srcElement.checked;
+    for (var i = 0; i < this.tasks.length; i++) {
+      this.tasks[i].TaskChecked = checked;
+    }
+  }
 }
