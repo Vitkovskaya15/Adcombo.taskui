@@ -91,4 +91,19 @@ export class TaskGetComponent implements OnInit {
       this.tasks[i].TaskChecked = checked;
     }
   }
+
+  isOverdue(task: Task): boolean {
+    if (!task.TaskDeadline)
+      return false;
+    
+    let deadlineTime = Date.parse(task.TaskDeadline.toString());
+
+    if (task.TaskDone) {
+      let finishedTime = Date.parse(task.TaskDone.toString());
+      return deadlineTime < finishedTime;
+    }
+
+    let currentTime = new Date().getTime();
+    return deadlineTime < currentTime;
+  }
 }
